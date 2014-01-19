@@ -15,7 +15,11 @@
           /(msie) ([\w.]+)/.exec( ua ) ||
           ua.indexOf("compatible") < 0 && /(mozilla)(?:.*? rv:([\w.]+)|)/.exec( ua ) ||
           [];
-
+      if(!!ua.match(/trident\/7\./)) {
+        match[1] = "msie";
+	match[2] = "11.0";
+      }
+console.log(match);
       return {
           browser: match[ 1 ] || "",
           version: match[ 2 ] || "0"
