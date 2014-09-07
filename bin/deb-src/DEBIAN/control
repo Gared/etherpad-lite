@@ -1,8 +1,8 @@
 Package: etherpad
-Version: 1.3
+Version: 1.4.1
 Section: base
 Priority: optional
-Architecture: i386
+Architecture: all
 Installed-Size: SIZE
 Depends:
 Maintainer: John McLear <john@mclear.co.uk>

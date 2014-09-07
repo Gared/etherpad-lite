@@ -7,7 +7,7 @@ set -e
 
 SRC=/tmp/etherpad-deb-src
 DIST=/tmp/etherpad-deb-dist
-SYSROOT=${SRC}/sysroot
+SYSROOT=${SRC}/
 DEBIAN=${SRC}/DEBIAN
 
 rm -rf ${DIST}
@@ -39,6 +39,7 @@ echo 2.0 > ./debian-binary
 find ${DIST}/ -type d -exec chmod 0755 {} \;
 find ${DIST}/ -type f -exec chmod go-w {} \;
 chown -R root:root ${DIST}/
-ar r ${DIST}/etherpad-1.deb debian-binary control.tar.gz data.tar.gz
+dpkg-deb --build ${SRC}/ etherpad.deb
+#ar r ${DIST}/etherpad-1.deb debian-binary control.tar.gz data.tar.gz
 popd
-rsync -a ${DIST}/etherpad-1.deb ./
+rsync -a ${DIST}/etherpad.deb ./

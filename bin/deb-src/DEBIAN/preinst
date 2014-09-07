@@ -5,7 +5,7 @@
 # Don't steamroll over a previously installed node version
 # TODO provide a local version of node?
 
-VER="0.10.4"
+VER="0.10.31"
 ARCH="x86"
 if [ `arch | grep 64` ]
 then
@@ -22,5 +22,11 @@ then
   cp -a /tmp/node-v${VER}-linux-${ARCH}/* /usr/local/
 fi
 
-# Create Etherpad user
-adduser --system etherpad
+# Check user already exists
+ret=false
+getent passwd $1 >/dev/null 2>&1 && ret=true
+
+# Create Etherpad user if needed
+if $ret; then
+  adduser --system etherpad
+fi
