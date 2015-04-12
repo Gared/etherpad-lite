@@ -1,3 +1,6 @@
+# 1.5.6
+ * testing stuff
+
 # 1.5.4
  * SECURITY: Also don't allow read files on directory traversal on frontend tests path
 
